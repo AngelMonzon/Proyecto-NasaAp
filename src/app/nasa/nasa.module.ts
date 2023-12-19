@@ -8,7 +8,11 @@ import { NasaImageVideoComponent } from './pages/nasa-image-video/nasa-image-vid
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 import { CardSidebarComponent } from './components/card-sidebar/card-sidebar.component';
-
+import { AsteroidsComponent } from './pages/asteroids/asteroids.component';
+import { EonetComponent } from './pages/eonet/eonet.component';
+import { ExoplanetComponent } from './pages/exoplanet/exoplanet.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,12 +20,18 @@ import { CardSidebarComponent } from './components/card-sidebar/card-sidebar.com
     MarsRoverPhotosComponent,
     NasaImageVideoComponent,
     LayoutPageComponent,
-    CardSidebarComponent
+    CardSidebarComponent,
+    AsteroidsComponent,
+    EonetComponent,
+    ExoplanetComponent,
   ],
   imports: [
     CommonModule,
     NasaRoutingModule,
+
     PrimeNGModule,
+    HttpClientModule,
+    FormsModule,
   ]
 })
 export class NasaModule { }

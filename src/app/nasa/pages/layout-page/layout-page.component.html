@@ -4,15 +4,17 @@
   [fullScreen]="true">
 
     <!-- Header -->
-    <ng-template pTemplate="header"><span class="font-bold text-xl">NasaApp</span></ng-template>
+    <ng-template pTemplate="header"><span class="font-bold text-xl text-5xl">NasaApp</span></ng-template>
 
     <!-- Contenido de SideBar -->
     <ng-template pTemplate="content">
-      <div class="grid">
+      <div class="grid mt-6">
 
         <div *ngFor="let sidebarItem of sidebarItems"
         class="col-12 md:col-6 xl:col-4">
-          <nasa-card-sidebar [sideBarItem]="sidebarItem"></nasa-card-sidebar>
+          <nasa-card-sidebar
+          [sideBarItem]="sidebarItem"
+          (sidebarVisible)="sidebarClose($event)"></nasa-card-sidebar>
         </div>
       </div>
 
@@ -24,15 +26,15 @@
   </p-sidebar>
 
   <!-- Boton de Sidebar -->
-  <p-button
-  color="blue"
+  <button pButton
+  class="absolute mt-2 ml-2"
   (click)="sidebarVisible = true"
   >
-    <span class="pi pi-spin pi-cog"> </span>Menu
-  </p-button>
+    <span class="pi-list"></span>
+  </button>
 
-  <div class="container">
-    <router-outlet></router-outlet>
+  <div class="container mt-7">
+    <router-outlet class="flex justify-content-center m-auto"></router-outlet>
   </div>
 </div>
 

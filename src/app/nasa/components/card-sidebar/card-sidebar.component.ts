@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { sidebarItem } from '../../interfaces/cardSidebar.interface';
 
 @Component({
@@ -8,6 +8,14 @@ import { sidebarItem } from '../../interfaces/cardSidebar.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardSidebarComponent {
+
+  @Output()
+  public sidebarVisible = new EventEmitter<boolean>();
+
   @Input()
   public sideBarItem!: sidebarItem;
+
+  sidebarClose(): void {
+    this.sidebarVisible.emit(false);
+  }
 }

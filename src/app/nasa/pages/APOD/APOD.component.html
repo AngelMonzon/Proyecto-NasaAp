@@ -1,1 +1,16 @@
-<p>APOD works!</p>
+
+<p-panel>
+  <ng-template pTemplate="header">
+    <span class="text-primary font-semibold text-xl text-center m-auto w-full">
+      {{article.title}}
+    </span></ng-template>
+  <p>
+    {{this.article.explanation}}
+  </p>
+
+  <div class="text-center	">
+    <p-image height="300px" [preview]="true"
+    class="m-auto"
+    [src]="article.hdurl"></p-image>
+  </div>
+</p-panel>

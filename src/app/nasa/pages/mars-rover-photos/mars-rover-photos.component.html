@@ -1,1 +1,99 @@
-<p>mars-rover-photos works!</p>,
+<div class="grid px-5">
+
+  <!-- Curiosity -->
+  <div class="card col-10 md:col-8 lg:col-8 my-3 mx-auto text-center">
+    <img src="https://cdn2.picryl.com/photo/2012/09/09/mars-science-laboratory-curiosity-rover-cropped-e64b9f-1024.jpg"
+    alt="curiosity" height="100px">
+    <p class="inline-block"><span class="font-bold	">Curiosity</span> <br> The Curiosity rover is a robotic exploration vehicle developed by
+      NASA to investigate the surface of Mars.
+      Launched on November 26, 2011, it successfully landed on Mars on August 6, 2012. Curiosity is a part of the Mars
+      Science Laboratory (MSL) mission and is primarily tasked with searching for signs of past or present life, as well
+      as studying the geology and climate of Mars.
+    </p>
+
+    <div>
+      <p-calendar [(ngModel)]="dateCuriosity" class="h-3rem"
+      dateFormat="dd/mm/yy"
+      (onSelect)="updatePhotosRover('curiosity')"></p-calendar>
+      <button class="buttonCalendar" pButton type="button"
+      (click)="showGallery('curiosity')">
+        <span class="material-symbols-outlined h-1rem">
+          photo_camera
+        </span>
+    </button>
+    </div>
+
+  </div>
+
+  <!-- Opportunity -->
+  <div class="card col-10 md:col-8 lg:col-8 my-3 mx-auto text-center">
+    <img src="https://www.mdscc.nasa.gov/wp-content/uploads/2019/08/spirit-2.jpg" alt="curiosity" height="100px">
+    <p>
+      <span class="font-bold">Opportunity</span> <br>
+      Opportunity was one of NASA's twin Mars Exploration Rovers, alongside Spirit. Launched on July 7, 2003, and
+      landing on January 25, 2004, Opportunity was designed for a primary mission of 90 Martian sols (Martian days), but
+      it far exceeded expectations, operating for over 14 years. Unfortunately, the rover's mission officially concluded
+      on February 13, 2019, as it lost communication with Earth during a massive dust storm on Mars.
+    </p>
+    <div>
+      <p-calendar [(ngModel)]="dateOpportunity" class="h-3rem"
+        [minDate]="minDateOpportunity" [maxDate]="maxDateOpportunity"
+        (onSelect)="updatePhotosRover('opportunity')"></p-calendar>
+      <button class="buttonCalendar" pButton type="button"
+      (click)="showGallery('opportunity')"
+      >
+        <span class="material-symbols-outlined h-1rem">
+          photo_camera
+        </span>
+    </button>
+    </div>
+  </div>
+
+  <!-- Spirit -->
+  <div class="card col-10 md:col-8 lg:col-8 my-3 mx-auto text-center">
+    <img src="https://cdn2.picryl.com/photo/2003/02/01/nasa-mars-rover-9ad9fc-1024.jpg" height="100px" alt="spirit">
+    <p>
+      <span class="font-bold">Spirit</span> <br>
+      The Spirit rover was a robotic exploration vehicle developed by NASA as part of the Mars Exploration Rover
+      mission. It was launched on June 10, 2003, and successfully landed on Mars on January 3, 2004. Spirit's primary
+      mission was to study the geology and climate of Mars, as well as to search for evidence of past water on the
+      planet's surface.
+      The Spirit mission officially concluded on May 25, 2011, when it lost communication with Earth.
+    </p>
+    <div>
+      <p-calendar [(ngModel)]="dateSpirit" class="h-3rem"
+        [minDate]="minDateSpirit" [maxDate]="maxDateSpirit"
+        (onSelect)="updatePhotosRover('spirit')"></p-calendar>
+      <button class="buttonCalendar" pButton type="button"
+      (click)="showGallery('spirit')"
+      >
+        <span class="material-symbols-outlined h-1rem">
+          photo_camera
+        </span>
+    </button>
+    </div>
+  </div>
+</div>
+
+<!-- Galeria para mostrar las imagenes del rover seleccionado -->
+<div>
+    <p-galleria [value]="getImages(selectRover)"
+    [(visible)]="displayGallery"
+    [responsiveOptions]="responsiveOptions"
+    [containerStyle]="{ 'max-width': '50%' }"
+    [numVisible]="25" [circular]="true"
+    [fullScreen]="true"
+    [showItemNavigators]="true"
+    [showThumbnails]="false"
+    [showIndicators]="true"
+    [showIndicatorsOnItem]="true">
+
+      <ng-template pTemplate="item" let-item>
+        <img [src]="item.img_src" style="width: 100%; display: block;" />
+      </ng-template>
+
+  </p-galleria>
+</div>
+
+<p-toast></p-toast>
+
