@@ -17,7 +17,7 @@ export class APODService {
     const params = new HttpParams()
     .set('api_key', this.apiKey);
 
-    this.http.get<Apod>(`${this.serviceUrl}/`, {params})
+    this.http.get<Apod>(this.serviceUrl, {params})
     .subscribe( resp => {
       this.apodArticle = resp;
     })
