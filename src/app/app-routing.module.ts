@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Error404PageComponent } from './shared/error404-page/error404-page.component';
-
 const routes: Routes = [
   {
     path: 'nasa',
