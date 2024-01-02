@@ -44,9 +44,9 @@ constructor(
   private marsRoverPhotosService: MarsRoverPhotosService,
   private messageService: MessageService)
   {
-  this.marsRoverPhotosService.searchPhotos('curiosity', this.dateCuriosity);
-  this.marsRoverPhotosService.searchPhotos('opportunity', this.dateOpportunity);
-  this.marsRoverPhotosService.searchPhotos('spirit', this.dateSpirit);
+  this.marsRoverPhotosService.searchPhotosMars('curiosity', this.dateCuriosity);
+  this.marsRoverPhotosService.searchPhotosMars('opportunity', this.dateOpportunity);
+  this.marsRoverPhotosService.searchPhotosMars('spirit', this.dateSpirit);
 }
 
 ngOnInit() {
@@ -128,13 +128,13 @@ showGallery(rover: string){
 updatePhotosRover(rover: string){
   switch (rover) {
     case 'curiosity':
-      this.marsRoverPhotosService.searchPhotos(rover, this.dateCuriosity);
+      this.marsRoverPhotosService.searchPhotosMars(rover, this.dateCuriosity);
       break;
     case 'opportunity':
-      this.marsRoverPhotosService.searchPhotos(rover, this.dateOpportunity);
+      this.marsRoverPhotosService.searchPhotosMars(rover, this.dateOpportunity);
       break;
     case 'spirit':
-      this.marsRoverPhotosService.searchPhotos(rover, this.dateSpirit);
+      this.marsRoverPhotosService.searchPhotosMars(rover, this.dateSpirit);
       break;
 
     default:

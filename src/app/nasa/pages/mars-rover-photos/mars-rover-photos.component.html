@@ -14,7 +14,8 @@
     <div>
       <p-calendar [(ngModel)]="dateCuriosity" class="h-3rem"
       dateFormat="dd/mm/yy"
-      (onSelect)="updatePhotosRover('curiosity')"></p-calendar>
+      (onSelect)="updatePhotosRover('curiosity')"
+      [minDate]="minDateCuriosity"></p-calendar>
       <button class="buttonCalendar" pButton type="button"
       (click)="showGallery('curiosity')">
         <span class="material-symbols-outlined h-1rem">
@@ -38,7 +39,9 @@
     <div>
       <p-calendar [(ngModel)]="dateOpportunity" class="h-3rem"
         [minDate]="minDateOpportunity" [maxDate]="maxDateOpportunity"
-        (onSelect)="updatePhotosRover('opportunity')"></p-calendar>
+        (onSelect)="updatePhotosRover('opportunity')"
+        [minDate]="minDateOpportunity"
+        [maxDate]="maxDateOpportunity"></p-calendar>
       <button class="buttonCalendar" pButton type="button"
       (click)="showGallery('opportunity')"
       >
@@ -63,7 +66,9 @@
     <div>
       <p-calendar [(ngModel)]="dateSpirit" class="h-3rem"
         [minDate]="minDateSpirit" [maxDate]="maxDateSpirit"
-        (onSelect)="updatePhotosRover('spirit')"></p-calendar>
+        (onSelect)="updatePhotosRover('spirit')"
+        [minDate]="minDateOpportunity"
+        [maxDate]="maxDateSpirit"></p-calendar>
       <button class="buttonCalendar" pButton type="button"
       (click)="showGallery('spirit')"
       >
@@ -85,7 +90,6 @@
     [fullScreen]="true"
     [showItemNavigators]="true"
     [showThumbnails]="false"
-    [showIndicators]="true"
     [showIndicatorsOnItem]="true">
 
       <ng-template pTemplate="item" let-item>

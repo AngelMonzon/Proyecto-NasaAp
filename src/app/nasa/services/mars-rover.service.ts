@@ -18,7 +18,7 @@ export class MarsRoverPhotosService {
   constructor(private http: HttpClient) {}
 
 
-  searchPhotos(rover: string, date: Date): void{
+  searchPhotosMars(rover: string, date: Date): void{
 
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
