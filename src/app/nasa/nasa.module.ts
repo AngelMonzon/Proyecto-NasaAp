@@ -13,6 +13,8 @@ import { EonetComponent } from './pages/eonet/eonet.component';
 import { ExoplanetComponent } from './pages/exoplanet/exoplanet.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CardNasaImageComponent } from './components/card-nasa-image/card-nasa-image.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,11 +26,12 @@ import { FormsModule } from '@angular/forms';
     AsteroidsComponent,
     EonetComponent,
     ExoplanetComponent,
+    CardNasaImageComponent
   ],
   imports: [
     CommonModule,
     NasaRoutingModule,
-
+    SharedModule,
     PrimeNGModule,
     HttpClientModule,
     FormsModule,

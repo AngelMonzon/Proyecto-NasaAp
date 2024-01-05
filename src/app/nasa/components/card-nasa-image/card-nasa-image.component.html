@@ -1,0 +1,22 @@
+<p-card [header]="data[0].title" [subheader]="data[0].nasa_id">
+  <ng-template pTemplate="header">
+      <p-image alt="Card" [src]="link[0].href" [preview]="true" />
+  </ng-template>
+
+  <p class="text-right">
+    Date: {{ data[0].date_created | date }}
+  </p>
+
+  <p-scrollPanel [style]="{ width: '100%', height: '150px' }">
+    <p class="text-xl">
+      {{ data[0].description }}
+    </p>
+  </p-scrollPanel>
+
+
+  <ng-template pTemplate="footer">
+    <p>
+      Creator: {{ data[0].secondary_creator }}
+    </p>
+  </ng-template>
+</p-card>

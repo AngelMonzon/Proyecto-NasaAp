@@ -1,0 +1,18 @@
+<span class="p-input-icon-left mb-3">
+  <i class="pi pi-search"></i>
+
+  <input
+  pInputText
+  type="text"
+  class="mr-3"
+  [value]="initialValue"
+  placeholder="mercury"
+  (keyup)="onKeyPress( txtInput.value )"
+  #txtInput
+>
+  <p-button icon="pi pi-search"></p-button>
+</span>
+
+
+
+

@@ -10,6 +10,12 @@ import { CardModule } from 'primeng/card';
 import { CalendarModule } from 'primeng/calendar';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { InputTextModule } from 'primeng/inputtext';
+import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { PaginatorModule } from 'primeng/paginator';
+
+
+
 
 @NgModule({
   declarations: [],
@@ -26,6 +32,9 @@ import { MessageService } from 'primeng/api';
     CardModule,
     CalendarModule,
     ToastModule,
+    InputTextModule,
+    ScrollPanelModule,
+    PaginatorModule
   ],
   providers: [MessageService]
 })
