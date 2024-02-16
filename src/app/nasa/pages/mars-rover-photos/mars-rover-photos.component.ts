@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MarsRoverPhotosService } from '../../services/mars-rover.service';
 import { Photo } from '../../interfaces/rovers.interface';
 import { MessageService } from 'primeng/api';
@@ -7,7 +7,6 @@ import { MessageService } from 'primeng/api';
   selector: 'app-mars-rover-photos',
   templateUrl: './mars-rover-photos.component.html',
   styleUrl: './mars-rover-photos.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MarsRoverPhotosComponent implements OnInit {
 
@@ -26,6 +25,11 @@ export class MarsRoverPhotosComponent implements OnInit {
 
   selectRover!: string;
 
+  //Variables para almacenar fotos de rovers
+  public photosCuriosity: Photo[] | undefined;
+  public photosOpportunity: Photo[] | undefined;
+  public photosSpirit: Photo[] | undefined;
+
   //Variables Date para Rovers
   dateCuriosity: Date = new Date(2012, 7, 18);
   dateOpportunity: Date = new Date(2005, 1, 18);
@@ -40,13 +44,19 @@ export class MarsRoverPhotosComponent implements OnInit {
   maxDateOpportunity: Date = new Date(2018, 5, 9);
   maxDateSpirit: Date = new Date(2012, 7, 6);
 
+  //Variables para iconos load
+  mstrIconCuriosity: boolean = true;
+  mstrIconOportunity: boolean = true;
+  mstrIconSpirit: boolean = true;
+
 constructor(
   private marsRoverPhotosService: MarsRoverPhotosService,
-  private messageService: MessageService)
+  private messageService: MessageService,
+  private cdr: ChangeDetectorRef)
   {
-  this.marsRoverPhotosService.searchPhotosMars('curiosity', this.dateCuriosity);
-  this.marsRoverPhotosService.searchPhotosMars('opportunity', this.dateOpportunity);
-  this.marsRoverPhotosService.searchPhotosMars('spirit', this.dateSpirit);
+  this.updatePhotosRover('curiosity');
+  this.updatePhotosRover('opportunity');
+  this.updatePhotosRover('spirit');
 }
 
 ngOnInit() {
@@ -70,34 +80,27 @@ getImages(rover: string):Photo[] | undefined{
 
   switch (rover) {
     case 'curiosity':
-      return this.marsRoverPhotosService.photosCuriosity;
+      return this.photosCuriosity;
     case 'opportunity':
-      return this.marsRoverPhotosService.photosOpportunity;
+      return this.photosOpportunity;
     case 'spirit':
-      return this.marsRoverPhotosService.photosSpirit;
+      return this.photosSpirit;
     default:
       return
   }
 }
 
-get imagesOpportunity():Photo[] {
-  return this.marsRoverPhotosService.photosOpportunity
-}
-
-get imagesSpirit():Photo[] {
-  return this.marsRoverPhotosService.photosSpirit
-}
-
 // Mostrar Galeria y actualizar arreglo e imagenes
 showGallery(rover: string){
   this.selectRover = rover;
-  console.log('curiosity', this.marsRoverPhotosService.photosCuriosity)
-  console.log('opportunity', this.marsRoverPhotosService.photosOpportunity)
-  console.log('Spirit', this.marsRoverPhotosService.photosSpirit)
+  console.log('curiosity', this.photosCuriosity)
+  console.log('opportunity', this.photosOpportunity)
+  console.log('Spirit', this.photosSpirit)
 
   switch (rover) {
     case 'curiosity':
-      if(this.marsRoverPhotosService.photosCuriosity.length == 0) {
+      if(this.photosCuriosity)
+      if(this.photosCuriosity.length == 0) {
         this.displayGallery = false;
         this.showInfo();
         break};
@@ -105,7 +108,8 @@ showGallery(rover: string){
       break;
 
     case 'opportunity':
-      if(this.marsRoverPhotosService.photosOpportunity.length == 0) {
+      if(this.photosOpportunity)
+      if(this.photosOpportunity.length == 0) {
         this.displayGallery = false;
         this.showInfo();
         break};
@@ -113,7 +117,8 @@ showGallery(rover: string){
       break;
 
     case 'spirit':
-      if(this.marsRoverPhotosService.photosSpirit.length == 0) {
+      if(this.photosSpirit)
+      if(this.photosSpirit.length == 0) {
         this.displayGallery = false;
         this.showInfo();
         break};
@@ -128,13 +133,46 @@ showGallery(rover: string){
 updatePhotosRover(rover: string){
   switch (rover) {
     case 'curiosity':
-      this.marsRoverPhotosService.searchPhotosMars(rover, this.dateCuriosity);
+      this.mstrIconCuriosity = true;
+      this.marsRoverPhotosService.searchPhotosMars(rover, this.dateCuriosity).subscribe(
+        (result) => {
+          this.photosCuriosity = result;
+          this.mstrIconCuriosity = false;
+          this.cdr.detectChanges();
+        },
+        (error) => {
+          this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Error searching for images' });
+          console.error('Error al buscar fotos de Marte:', error);
+        }
+      )
       break;
     case 'opportunity':
-      this.marsRoverPhotosService.searchPhotosMars(rover, this.dateOpportunity);
+      this.mstrIconOportunity = true;
+      this.marsRoverPhotosService.searchPhotosMars(rover, this.dateOpportunity).subscribe(
+        (result) => {
+          this.photosOpportunity = result;
+          this.mstrIconOportunity = false;
+          this.cdr.detectChanges();
+        },
+        (error) => {
+          this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Error searching for images' });
+          console.error('Error al buscar fotos de Marte:', error);
+        }
+      )
       break;
     case 'spirit':
-      this.marsRoverPhotosService.searchPhotosMars(rover, this.dateSpirit);
+      this.mstrIconSpirit = true;
+      this.marsRoverPhotosService.searchPhotosMars(rover, this.dateSpirit).subscribe(
+        (result) => {
+          this.photosSpirit = result;
+          this.mstrIconSpirit = false;
+          this.cdr.detectChanges();
+        },
+        (error) => {
+          this.messageService.add({ severity: 'info', summary: 'Info', detail: 'Error searching for images' });
+          console.error('Error al buscar fotos de Marte:', error);
+        }
+      )
       break;
 
     default:
@@ -146,6 +184,18 @@ updatePhotosRover(rover: string){
 showInfo() {
   this.messageService.add({ severity: 'info', summary: 'Info', detail: 'The selected date does not contain images' });
   console.log('Advertencia lanzada')
+}
+
+//Funciones para cambiar valor a variables de iconos load
+
+toggleIconCuriosity() {
+  this.mstrIconCuriosity = !this.mstrIconCuriosity;
+}
+toggleIconOportunity() {
+  this.mstrIconOportunity = !this.mstrIconOportunity;
+}
+toggleIconSpirit() {
+  this.mstrIconSpirit = !this.mstrIconSpirit;
 }
 
 

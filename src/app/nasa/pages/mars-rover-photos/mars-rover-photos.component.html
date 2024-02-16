@@ -3,25 +3,24 @@
   <!-- Curiosity -->
   <div class="card col-10 md:col-8 lg:col-8 my-3 mx-auto text-center">
     <img src="https://cdn2.picryl.com/photo/2012/09/09/mars-science-laboratory-curiosity-rover-cropped-e64b9f-1024.jpg"
-    alt="curiosity" height="100px">
-    <p class="inline-block"><span class="font-bold	">Curiosity</span> <br> The Curiosity rover is a robotic exploration vehicle developed by
+      alt="curiosity" height="100px">
+    <p class="inline-block"><span class="font-bold	">Curiosity</span> <br> The Curiosity rover is a robotic exploration
+      vehicle developed by
       NASA to investigate the surface of Mars.
       Launched on November 26, 2011, it successfully landed on Mars on August 6, 2012. Curiosity is a part of the Mars
       Science Laboratory (MSL) mission and is primarily tasked with searching for signs of past or present life, as well
       as studying the geology and climate of Mars.
     </p>
 
-    <div>
-      <p-calendar [(ngModel)]="dateCuriosity" class="h-3rem"
-      dateFormat="dd/mm/yy"
-      (onSelect)="updatePhotosRover('curiosity')"
-      [minDate]="minDateCuriosity"></p-calendar>
-      <button class="buttonCalendar" pButton type="button"
-      (click)="showGallery('curiosity')">
+    <div class="calendar-container">
+      <p-calendar [(ngModel)]="dateCuriosity" class="h-3rem" dateFormat="dd/mm/yy"
+        (onSelect)="updatePhotosRover('curiosity')" [minDate]="minDateCuriosity"></p-calendar>
+      <button *ngIf="!mstrIconCuriosity" class="buttonCalendar" pButton type="button" (click)="showGallery('curiosity')">
         <span class="material-symbols-outlined h-1rem">
           photo_camera
         </span>
-    </button>
+      </button>
+      <i *ngIf="mstrIconCuriosity" class="pi pi-spin pi-spinner"></i>
     </div>
 
   </div>
@@ -36,19 +35,16 @@
       it far exceeded expectations, operating for over 14 years. Unfortunately, the rover's mission officially concluded
       on February 13, 2019, as it lost communication with Earth during a massive dust storm on Mars.
     </p>
-    <div>
-      <p-calendar [(ngModel)]="dateOpportunity" class="h-3rem"
-        [minDate]="minDateOpportunity" [maxDate]="maxDateOpportunity"
-        (onSelect)="updatePhotosRover('opportunity')"
-        [minDate]="minDateOpportunity"
+    <div class="calendar-container">
+      <p-calendar [(ngModel)]="dateOpportunity" class="h-3rem" [minDate]="minDateOpportunity"
+        [maxDate]="maxDateOpportunity" (onSelect)="updatePhotosRover('opportunity')" [minDate]="minDateOpportunity"
         [maxDate]="maxDateOpportunity"></p-calendar>
-      <button class="buttonCalendar" pButton type="button"
-      (click)="showGallery('opportunity')"
-      >
+      <button *ngIf="!mstrIconOportunity" class="buttonCalendar" pButton type="button" (click)="showGallery('opportunity')">
         <span class="material-symbols-outlined h-1rem">
           photo_camera
         </span>
-    </button>
+      </button>
+      <i *ngIf="mstrIconOportunity" class="pi pi-spin pi-spinner"></i>
     </div>
   </div>
 
@@ -63,41 +59,30 @@
       planet's surface.
       The Spirit mission officially concluded on May 25, 2011, when it lost communication with Earth.
     </p>
-    <div>
-      <p-calendar [(ngModel)]="dateSpirit" class="h-3rem"
-        [minDate]="minDateSpirit" [maxDate]="maxDateSpirit"
-        (onSelect)="updatePhotosRover('spirit')"
-        [minDate]="minDateOpportunity"
-        [maxDate]="maxDateSpirit"></p-calendar>
-      <button class="buttonCalendar" pButton type="button"
-      (click)="showGallery('spirit')"
-      >
+    <div class="calendar-container">
+      <p-calendar [(ngModel)]="dateSpirit" class="h-3rem" [minDate]="minDateSpirit" [maxDate]="maxDateSpirit"
+        (onSelect)="updatePhotosRover('spirit')" [minDate]="minDateOpportunity" [maxDate]="maxDateSpirit"></p-calendar>
+      <button *ngIf="!mstrIconSpirit" class="buttonCalendar" pButton type="button" (click)="showGallery('spirit')">
         <span class="material-symbols-outlined h-1rem">
           photo_camera
         </span>
-    </button>
+      </button>
+      <i *ngIf="mstrIconSpirit" class="pi pi-spin pi-spinner"></i>
     </div>
   </div>
 </div>
 
 <!-- Galeria para mostrar las imagenes del rover seleccionado -->
 <div>
-    <p-galleria [value]="getImages(selectRover)"
-    [(visible)]="displayGallery"
-    [responsiveOptions]="responsiveOptions"
-    [containerStyle]="{ 'max-width': '50%' }"
-    [numVisible]="25" [circular]="true"
-    [fullScreen]="true"
-    [showItemNavigators]="true"
-    [showThumbnails]="false"
-    [showIndicatorsOnItem]="true">
+  <p-galleria [value]="getImages(selectRover)" [(visible)]="displayGallery" [responsiveOptions]="responsiveOptions"
+    [containerStyle]="{ 'max-width': '50%' }" [numVisible]="25" [circular]="true" [fullScreen]="true"
+    [showItemNavigators]="true" [showThumbnails]="false" [showIndicatorsOnItem]="true">
 
-      <ng-template pTemplate="item" let-item>
-        <img [src]="item.img_src" style="width: 100%; display: block;" />
-      </ng-template>
+    <ng-template pTemplate="item" let-item>
+      <img [src]="item.img_src" style="width: 100%; display: block;" />
+    </ng-template>
 
   </p-galleria>
 </div>
 
 <p-toast></p-toast>
-
