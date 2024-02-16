@@ -13,7 +13,7 @@ import { MessageService } from 'primeng/api';
 import { InputTextModule } from 'primeng/inputtext';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { PaginatorModule } from 'primeng/paginator';
-
+import { TableModule } from 'primeng/table';
 
 
 
@@ -34,7 +34,8 @@ import { PaginatorModule } from 'primeng/paginator';
     ToastModule,
     InputTextModule,
     ScrollPanelModule,
-    PaginatorModule
+    PaginatorModule,
+    TableModule
   ],
   providers: [MessageService]
 })

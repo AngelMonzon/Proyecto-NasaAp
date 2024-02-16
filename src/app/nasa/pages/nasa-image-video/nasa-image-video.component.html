@@ -1,27 +1,25 @@
+<!-- Cuadro de busqueda -->
+<search-image-nasa class="text-center" (onDebounce)="searchMediaNasa($event)"></search-image-nasa>
 
-<search-image-nasa
-class="text-center"
-(onDebounce)="searchMediaNasa($event)"
-></search-image-nasa>
-
-
+<!-- Grid para resultados -->
 <div class="grid">
-  <div *ngFor="let item of images"
-  class="col-12 md:col-6 lg:col-4 xl:3">
-  <nasa-card-image
-  [data]="item.data"
-  [link]="item.links"
-  ></nasa-card-image>
-  </div>
+  <ng-container *ngFor="let item of images; let i = index">
+    <ng-container *ngIf="(item.data[0]?.media_type === MediaType.Image)">
+      <div class="col-12 md:col-6 lg:col-4 xl:3">
+        <nasa-card-image [data]="item.data" [link]="item.links"></nasa-card-image>
+      </div>
+    </ng-container>
+  </ng-container>
+
 </div>
 
+<p-table>
+
+</p-table>
+
+<!-- Paginador -->
 <div class="card flex justify-content-center">
-  <p-paginator
-  (onPageChange)="onPageChange($event)"
-  [first]="first !== undefined ? first : 0"
-  [rows]="rows !== undefined ? rows : 10"
-  [totalRecords]="120"
-  [rowsPerPageOptions]="[10, 20, 30]">
+  <p-paginator (onPageChange)="onPageChange($event)" [first]="first !== undefined ? first : 0"
+    [rows]="rows !== undefined ? rows : 10" [totalRecords]="120" [rowsPerPageOptions]="[12, 24, 36]">
   </p-paginator>
 </div>
-
