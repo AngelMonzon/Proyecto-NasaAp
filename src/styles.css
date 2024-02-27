@@ -3,3 +3,7 @@
 @import "primeng/resources/primeng.min.css";
 @import "primeicons/primeicons.css";
 
+
+body{
+  font-family: "Roboto", sans-serif;
+}

@@ -26,9 +26,9 @@ export class LayoutPageComponent {
       path: 'nasa-image-video'
     },
     {
-      title: 'Asteroids - NeoWs',
-      urlImage: 'https://images.hindustantimes.com/tech/img/2023/04/10/960x540/asteroid-6010220_960_720_1669362561139_1679319215140_1681089279716_1681089279716.jpg',
-      path: 'asteroids'
+      title: 'EPIC Earth Polychromatic Imaging Camera',
+      urlImage: 'https://epic.gsfc.nasa.gov/contents/assets/Image_003.jpg',
+      path: 'epic'
     },
     {
       title: 'EONET - The Earth Observatory Natural Event Tracker',

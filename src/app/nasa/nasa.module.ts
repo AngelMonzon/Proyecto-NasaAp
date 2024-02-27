@@ -8,7 +8,7 @@ import { NasaImageVideoComponent } from './pages/nasa-image-video/nasa-image-vid
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { PrimeNGModule } from '../prime-ng/prime-ng.module';
 import { CardSidebarComponent } from './components/card-sidebar/card-sidebar.component';
-import { AsteroidsComponent } from './pages/asteroids/asteroids.component';
+import { EpicComponent } from './pages/epic/epic.component';
 import { EonetComponent } from './pages/eonet/eonet.component';
 import { ExoplanetComponent } from './pages/exoplanet/exoplanet.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -23,7 +23,7 @@ import { SharedModule } from '../shared/shared.module';
     NasaImageVideoComponent,
     LayoutPageComponent,
     CardSidebarComponent,
-    AsteroidsComponent,
+    EpicComponent,
     EonetComponent,
     ExoplanetComponent,
     CardNasaImageComponent
