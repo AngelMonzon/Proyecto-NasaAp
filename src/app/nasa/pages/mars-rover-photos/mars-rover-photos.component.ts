@@ -17,8 +17,6 @@ export class MarsRoverPhotosComponent implements OnInit {
     { name: 'Spirit', value: 'Spirit' }
 ];
 
-
-
   responsiveOptions: any[] | undefined;
 
   displayGallery: boolean = false;
@@ -31,7 +29,7 @@ export class MarsRoverPhotosComponent implements OnInit {
   public photosSpirit: Photo[] | undefined;
 
   //Variables Date para Rovers
-  dateCuriosity: Date = new Date(2012, 7, 18);
+  dateCuriosity: Date = new Date(2020, 9, 20);
   dateOpportunity: Date = new Date(2005, 1, 18);
   dateSpirit: Date = new Date(2004, 11, 24);
 

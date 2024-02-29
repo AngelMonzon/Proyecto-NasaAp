@@ -7,8 +7,8 @@ import { NasaImageVideoComponent } from './pages/nasa-image-video/nasa-image-vid
 import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { APODComponent } from './pages/APOD/APOD.component';
 import { EpicComponent } from './pages/epic/epic.component';
-import { EonetComponent } from './pages/eonet/eonet.component';
-import { ExoplanetComponent } from './pages/exoplanet/exoplanet.component';
+import { spaceXComponent } from './pages/spaceX/spaceX.component';
+import { ArtemisComponent } from './pages/artemis/artemis.component';
 
 export const routes: Routes = [
   {
@@ -19,8 +19,8 @@ export const routes: Routes = [
       { path: 'mars-rover', component: MarsRoverPhotosComponent },
       { path: 'nasa-image-video', component: NasaImageVideoComponent},
       { path: 'epic', component: EpicComponent},
-      { path: 'eonet', component: EonetComponent},
-      { path: 'exoplanet', component: ExoplanetComponent},
+      { path: 'artemis', component: ArtemisComponent},
+      { path: 'spaceX', component: spaceXComponent},
       { path: '**', redirectTo: 'APOD'},
     ]
   }

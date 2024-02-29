@@ -28,9 +28,9 @@ export class NasaImageVideoComponent implements OnInit {
 
 
 
-  constructor(private nasaImageService: nasaImageService, private cdr: ChangeDetectorRef) {
-
-  }
+  constructor(
+    private nasaImageService: nasaImageService,
+    private cdr: ChangeDetectorRef) {}
 
 
   ngOnInit(): void {
