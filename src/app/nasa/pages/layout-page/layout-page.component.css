@@ -2,9 +2,26 @@
   display: block;
 }
 
+.container{
+  margin-top: 15px;
+  height: 100%;
+}
+
 .side-bar-item{
   margin-top: 1rem;
   display: block;
   text-align: center;
+}
+
+
+.footer{
+  margin-top: 15px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.redes{
+  width: 60px;
+  margin: 0 10px;
 }
 

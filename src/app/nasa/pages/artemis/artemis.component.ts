@@ -25,7 +25,7 @@ export class ArtemisComponent implements OnInit {
 
   rows?: number = 1;
 
-  totalRecords?: number;
+  totalRecords: number = 100;
 
   page?: number = 0;
 
@@ -41,7 +41,9 @@ export class ArtemisComponent implements OnInit {
         this.playlistItems = data.items;
         console.log(this.playlistItems);
         console.log(this.playlistItems[1].snippet.resourceId.videoId);
-        this.totalRecords = data.items.length;
+        if(!(data.items.length == undefined)){
+          this.totalRecords = data.items.length;
+        }
         this.cdr.detectChanges()
       },
       (error) => {
@@ -74,7 +76,7 @@ export class ArtemisComponent implements OnInit {
   }
 
   get title(): string {
-    if(this.playlistItems.length > 0 && !(this.page == undefined)){
+    if(this.playlistItems.length > 0 && !(this.page == undefined) && !(this.playlistItems[this.page] == undefined)){
       let title: string = this.playlistItems[this.page].snippet.title;
       return title;
     }
@@ -82,7 +84,7 @@ export class ArtemisComponent implements OnInit {
   }
 
   get description(): string {
-    if(this.playlistItems.length > 0 && !(this.page == undefined)){
+    if(this.playlistItems.length > 0 && !(this.page == undefined) && !(this.playlistItems[this.page] == undefined)){
       let description: string = this.playlistItems[this.page].snippet.description;
       return description;
     }

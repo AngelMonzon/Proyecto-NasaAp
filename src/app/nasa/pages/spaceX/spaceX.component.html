@@ -25,9 +25,11 @@
   </div>
 </div>
 
+<div style="height: 100px;"></div>
+
 <!-- Paginador -->
 <div class="card flex justify-content-center">
   <p-paginator (onPageChange)="onPageChange($event)" [first]="first !== undefined ? first : 0"
-    [rows]="rows !== undefined ? rows : 1" [totalRecords]="120">
+    [rows]="rows !== undefined ? rows : 1" [totalRecords]="totalRecords">
   </p-paginator>
 </div>

@@ -50,3 +50,17 @@ h2{
 .description h2 {
   margin-bottom: 0;
 }
+
+@media (max-width: 1200px) {
+  .content{
+    display: block;
+  }
+  .video{
+    display: block;
+    width: 100%;
+  }
+  .description{
+    display: block;
+    width: 100%;
+  }
+}

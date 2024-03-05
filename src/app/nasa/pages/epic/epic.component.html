@@ -9,7 +9,7 @@
   <p-calendar [(ngModel)]="date" class="h-3rem" dateFormat="dd/mm/yy"
     (onSelect)="updateEpic(date)" [minDate]="minDate"></p-calendar>
   <button *ngIf="!mstrIcon" class="buttonCalendar" pButton type="button" (click)="toggleGallery()">
-    <span class="material-symbols-outlined h-1rem">
+    <span class="material-symbols-outlined h-1rem" translate="no">
       photo_camera
     </span>
   </button>

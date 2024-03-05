@@ -1,4 +1,4 @@
-<div class="grid px-5">
+<div class="grid">
 
   <!-- Curiosity -->
   <div class="card col-10 md:col-8 lg:col-8 my-3 mx-auto text-center">
@@ -16,7 +16,7 @@
       <p-calendar [(ngModel)]="dateCuriosity" class="h-3rem" dateFormat="dd/mm/yy"
         (onSelect)="updatePhotosRover('curiosity')" [minDate]="minDateCuriosity"></p-calendar>
       <button *ngIf="!mstrIconCuriosity" class="buttonCalendar" pButton type="button" (click)="showGallery('curiosity')">
-        <span class="material-symbols-outlined h-1rem">
+        <span class="material-symbols-outlined h-1rem" translate="no">
           photo_camera
         </span>
       </button>
@@ -40,7 +40,7 @@
         [maxDate]="maxDateOpportunity" (onSelect)="updatePhotosRover('opportunity')" [minDate]="minDateOpportunity"
         [maxDate]="maxDateOpportunity"></p-calendar>
       <button *ngIf="!mstrIconOportunity" class="buttonCalendar" pButton type="button" (click)="showGallery('opportunity')">
-        <span class="material-symbols-outlined h-1rem">
+        <span class="material-symbols-outlined h-1rem"  translate="no">
           photo_camera
         </span>
       </button>
@@ -63,7 +63,7 @@
       <p-calendar [(ngModel)]="dateSpirit" class="h-3rem" [minDate]="minDateSpirit" [maxDate]="maxDateSpirit"
         (onSelect)="updatePhotosRover('spirit')" [minDate]="minDateOpportunity" [maxDate]="maxDateSpirit"></p-calendar>
       <button *ngIf="!mstrIconSpirit" class="buttonCalendar" pButton type="button" (click)="showGallery('spirit')">
-        <span class="material-symbols-outlined h-1rem">
+        <span class="material-symbols-outlined h-1rem" translate="no">
           photo_camera
         </span>
       </button>

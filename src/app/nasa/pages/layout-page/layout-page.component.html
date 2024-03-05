@@ -1,41 +1,62 @@
-
 <div class="card">
-  <p-sidebar [(visible)]="sidebarVisible"
-  [fullScreen]="true">
+  <p-sidebar [(visible)]="sidebarVisible" [fullScreen]="true">
 
     <!-- Header -->
-    <ng-template pTemplate="header"><span class="font-bold text-xl text-5xl">NasaApp</span></ng-template>
+    <ng-template pTemplate="header"><span class="font-bold text-xl text-7xl">NasaApp</span></ng-template>
 
     <!-- Contenido de SideBar -->
     <ng-template pTemplate="content">
       <div class="grid mt-6">
 
-        <div *ngFor="let sidebarItem of sidebarItems"
-        class="col-12 md:col-6 xl:col-4">
-          <nasa-card-sidebar
-          [sideBarItem]="sidebarItem"
-          (sidebarVisible)="sidebarClose($event)"></nasa-card-sidebar>
+        <div *ngFor="let sidebarItem of sidebarItems" class="col-12 md:col-6 xl:col-4">
+          <nasa-card-sidebar [sideBarItem]="sidebarItem" (sidebarVisible)="sidebarClose($event)"></nasa-card-sidebar>
         </div>
       </div>
 
     </ng-template>
 
     <!-- Footer -->
-    <ng-template pTemplate="footer">Footer Content</ng-template>
+    <ng-template pTemplate="footer">
+      <div class="footer">
+        <a href="https://github.com/AngelMonzon/Proyecto-NasaApp" target="_blank">
+          <img class="redes" src="assets/icons/github.png" alt="">
+        </a>
+        <a href="https://www.linkedin.com/in/adolfo-angel-monzon-hernandez-2b672a273/" target="_blank">
+          <img class="redes" src="assets/icons/linkedin.png" alt="">
+        </a>
+        <a href="mailto:adolfo.angel935@gmail.com" target="_blank">
+          <img class="redes" src="assets/icons/mail.png" alt="">
+        </a>
+      </div>
+    </ng-template>
 
   </p-sidebar>
 
   <!-- Boton de Sidebar -->
-  <button pButton
-  class=""
-  (click)="sidebarVisible = true"
-  >
+  <button pButton class="" (click)="sidebarVisible = true">
     <span class="pi-list"></span>
   </button>
 
-  <div class="container">
-    <router-outlet class="flex justify-content-center m-auto"></router-outlet>
+  <div>
+    <div class="container">
+      <router-outlet class="flex justify-content-center m-auto"></router-outlet>
+    </div>
+
+    <footer>
+      <div class="footer">
+        <a href="https://github.com/AngelMonzon/Proyecto-NasaApp" target="_blank">
+          <img class="redes" src="assets/icons/github.png" alt="">
+        </a>
+        <a href="https://www.linkedin.com/in/adolfo-angel-monzon-hernandez-2b672a273/" target="_blank">
+          <img class="redes" src="assets/icons/linkedin.png" alt="">
+        </a>
+        <a href="mailto:adolfo.angel935@gmail.com" target="_blank">
+          <img class="redes" src="assets/icons/mail.png" alt="">
+        </a>
+      </div>
+    </footer>
   </div>
+
 </div>
 
 
